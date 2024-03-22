@@ -1,0 +1,69 @@
+{% extends "base.html" %} {% block title %}Notas E Faltas{% endblock title %} 
+
+{% block content %}
+<div class="container-fluid">
+<div
+  class="text-light mt-4 p-4 w-300px"
+  style="background-color: #0b5394; border-radius: 15px; min-height: 425px;"
+>
+  <h2 class="p-2">Informações Notas do Aluno</h2>
+    <div class="row p-2">
+      <div class="col mb-2">
+        <h3>Nome e Sobrenome</h3>
+        <span> {{ request.user.first_name }} {{ request.user.last_name }} </span>
+        <h3>Turma</h3>
+        {% for turma in turmas %}
+        <span > {{ turma.nome_turma }}  </span>
+        {% endfor %}
+        <div class="table-responsive mt-2">
+          <table class="table table-bordered text-light">
+            <thead>
+              <tr>
+                <th scope="col">Disciplina</th>
+                <th scope="col">Faltas</th>
+                <th scope="col">Atividade 1</th>
+                <th scope="col">Atividade 2</th>
+                <th scope="col">Prova 1</th>
+                <th scope="col">Média 1° Bimestre </th>
+                <th scope="col">Atividade 3</th>
+                <th scope="col">Atividade 4</th>
+                <th scope="col">Prova 2</th>
+                <th scope="col">Média 2° Bimestre</th>
+                <th scope="col">Média Semestre</th>
+                <th scope="col">Situação Semestre</th>
+                <th scope="col">Prova Final</th>
+                <th scope="col">Média Final</th>
+                <th scope="col">Situação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                {% for estatistica in estatisticas %}
+                <th scope="col"> {{ estatistica.aluno_disciplina }} </th>
+                <td scope="col"> {{ estatistica.aluno_falta }} </td>
+                <td scope="col"> {{ estatistica.nota_atv1 }} </td>
+                <td scope="col"> {{ estatistica.nota_atv2  }} </td>
+                <td scope="col"> {{ estatistica.nota_pb1 }} </td>
+                <td scope="col"> {{ estatistica.media_bm1  }} </td>
+
+                <td scope="col"> {{ estatistica.nota_atv3 }} </td>
+                <td scope="col"> {{ estatistica.nota_atv4  }} </td>
+                <td scope="col"> {{ estatistica.nota_pb2 }} </td>
+                <td scope="col"> {{ estatistica.media_bm2  }} </td>
+
+                <td scope="col"> {{ estatistica.media_sm }} </td>
+                <td scope="col"> {{ estatistica.situação_sm }} </td>
+
+                <td scope="col"> {{ estatistica.nota_pf }} </td>
+                <td scope="col"> {{ estatistica.media_fn  }} </td>
+                <td scope="col"> {{ estatistica.situação_fn }} </td>
+              </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock content %}

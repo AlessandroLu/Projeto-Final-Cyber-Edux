@@ -1,0 +1,60 @@
+{% extends "base.html" %} {% block title %}Cadastrar Aluno{% endblock title %}
+{% block content %}
+
+{% for aluno in info_alunos %}
+{% for turma in turmas %}
+
+<div
+  class="container text-light mt-4 p-4"
+  style="background-color: #0b5394; border-radius: 15px; min-height: 425px;"
+>
+  <h2 class="p-2">Informações do Aluno</h2>
+    <div class="row mt-3 p-2">
+      <h4 class="p-2">Informações Pessoais</h4>
+      <div class="col">
+        <h3>Nome</h3>
+        <span> {{aluno.first_name}} </span>
+      </div>
+
+      <div class="col">
+        <h3>Sobrenome</h3>
+        <span> {{aluno.last_name}} </span>
+      </div>
+      <div class="col">
+        <h3>Matricula</h3>
+        <span> {{aluno.matricula}} </span>
+      </div>
+      <div class="col">
+        <h3>Turma</h3>
+        <span> {{turma.nome_turma}} </span>
+      </div>
+    </div>
+
+    <div class="row p-4">
+      <div class="col">
+        <h3>Data de Nascimento</h3>
+        <span> {{aluno.dtNascimento}} </span>
+      </div>
+      <div class="col">
+        <h3>Gênero</h3>
+        <span> {{aluno.get_genero_display}} </span>
+      </div>
+    </div>
+
+    <hr />
+    <div class="row p-4">
+      <h4 class="p-2">Informações de Contato </h4>
+      <div class="col">
+        <h3>Telefone</h3>
+        <span> {{aluno.TelCelular}} </span>
+      </div>
+      <div class="col">
+        <h3>Email</h3>
+        <span> {{aluno.email}}  </span>
+      </div>
+    </div>
+</div>
+
+{% endfor %}
+{% endfor %}
+{% endblock content %}

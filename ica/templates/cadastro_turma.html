@@ -1,0 +1,90 @@
+{% extends "base.html" %} {% load static %} {% block title %}Cadastrar Turma {% endblock title %} 
+
+{% block content %}
+
+
+<div
+  class="container text-light mt-4 p-4"
+  style="background-color: #0b5394; border-radius: 15px"
+>
+  <h2 class="p-2 mt-4">Cadastrar Turma</h2>
+  <form method="post">
+    {% csrf_token %}
+    <div class="row mt-3 p-2">
+      <div class="col">
+        <div data-mdb-input-init class="form-outline">
+          <input
+            type="text"
+            id="nome_turno"
+            class="form-control"
+            name="nome_turma"
+          />
+          <label class="form-label" for="nome_turma">Nome Turma</label>
+        </div>
+      </div>
+      <div class="row p-4">
+        <div class="col input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text bg-light" for=turno_turma"
+              >Turno</label
+            >
+          </div>
+          <select class="form-control" name="turno_turma">
+            <option value="" selected>Selecione um Turno</option>
+            <option value="1">Matutino</option>
+            <option value="2">Vespertino</option>
+            <option value="3">Noturno</option>
+          </select>
+        </div>
+        <div class="col input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text bg-light" for="semestre_turma"
+              >Semestre</label
+            >
+          </div>
+          <select
+            id="semestre"
+            class="form-control"
+            name="semestre_turma"
+          >
+            <option value="" selected>Selecione um Semestre</option>
+            <option value="1">1° Semestre</option>
+            <option value="2">2° Semestre</option>
+            <option value="3">3° Semestre</option>
+            <option value="4">4° Semestre</option>
+            <option value="5">5° Semestre</option>
+            <option value="6">6° Semestre</option>
+            <option value="7">7° Semestre</option>
+            <option value="8">8° Semestre</option>
+            <option value="9">9° Semestre</option>
+            <option value="10">10° Semestre</option>
+            <option value="11">11° Semestre</option>
+            <option value="12">12° Semestre</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row p-4">
+      <div class="col input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text bg-light" for="turno_turma"
+            >Curso de Graduação</label
+          >
+        </div>
+        <select class="form-control" name="graduacao_turma">
+          <option value="" selected>Selecione um Curso</option>
+          {% for curso in cursos %}
+          <option value="{{curso.id_curso}}"> {{curso.nome_curso}} </option>
+          {% endfor %}
+        </select>
+      </div>
+
+    <div style="margin-left: 40%">
+      <button type="submit" class="btn btn-lg btn-light">
+        Cadastrar Turma
+      </button>
+    </div>
+  </form>
+
+</div>
+{% endblock content %}

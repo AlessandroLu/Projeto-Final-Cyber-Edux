@@ -1,0 +1,68 @@
+{% extends "base.html" %} {% block title %}Perfil {% endblock title %}
+{% load permission_tags %} {% block content %}
+<div
+  class="container text-light mt-4 p-4"
+  style="background-color: #0b5394; border-radius: 15px"
+>
+  <h2 class="p-2">Informações do Usuário</h2>
+  {% for turma in turmas %}
+  <div class="row mt-3 p-2">
+    <h4 class="p-2">Informações Pessoais</h4>
+    <div class="col">
+      <h3>Nome</h3>
+      <span> {{ request.user.first_name }} </span>
+    </div>
+
+    <div class="col">
+      <h3>Sobrenome</h3>
+      <span> {{ request.user.last_name }} </span>
+    </div>
+    <div class="col">
+      <h3>CPF</h3>
+      <span> {{ request.user.cpf }} </span>
+    </div>
+    <div class="col">
+      <h3>Matricula</h3>
+      <span> {{ request.user.matricula }} </span>
+    </div>
+    {% if user|has_role:'aluno' %}
+    <div class="col">
+      <h3>Turma</h3>
+      <span> {{turma.nome_turma}} </span>
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="row p-4">
+    <div class="col">
+      <h3>Data de Nascimento</h3>
+      <span> {{ request.user.dtNascimento }} </span>
+    </div>
+    <div class="col">
+      <h3>Gênero</h3>
+      <span> {{ request.user.get_genero_display }} </span>
+    </div>
+  </div>
+
+  <hr />
+  <div class="row p-4">
+    <h4 class="p-2">Informações de Contato</h4>
+    <div class="col">
+      <h3>Telefone</h3>
+      <span> {{ request.user.TelCelular }} </span>
+    </div>
+    <div class="col">
+      <h3>Email</h3>
+      <span> {{ request.user.email }} </span>
+    </div>
+    {% if user|can:'ver_alunos' %}
+    <div class="col">
+      <h3>Fim do Contato</h3>
+      <span> {{ request.user.contrato }} </span>
+    </div>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock content %}

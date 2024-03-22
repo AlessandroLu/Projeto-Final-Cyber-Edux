@@ -1,0 +1,167 @@
+{% extends "base.html" %} {% block title %}Home{% endblock title %} 
+
+
+{% load permission_tags %}
+
+{% block content %} 
+
+<div class="container mt-4">
+  <h2 class="p-2 rounded text-light" style="background-color: #0b5394" >
+    Bem-Vindo, {{user.first_name}} {{user.last_name}}
+  </h2>
+  
+  <div
+    style="
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      text-align: center;
+      flex-wrap: wrap;
+      min-height: 425px;
+    ">
+    {% if user|can:'ver_notas_faltas' %}
+    <a
+      class="btn btn-lg text-light text-center p-3 mt-2 mt-2 rounded"
+      style="
+        height: 6em;
+        width: 400px;
+        font-size: x-large;
+        background-color: #0b5394;
+      "
+      href="{% url "notas-faltas" %}"
+    >
+    Visualizar Notas e Faltas
+    </a>
+    {% endif %}
+
+    {% if user|can:'ver_professores_disciplinas' %}
+    <a
+      class="btn btn-lg text-light text-center p-3 mt-2 mt-2 rounded"
+      style="
+        height: 6em;
+        width: 400px;
+        font-size: x-large;
+        background-color: #0b5394;
+      "
+      href="{% url "info_professores" %}"
+    >
+    Visualizar Disciplinas e Professores
+    </a>
+    {% endif %}
+
+    {% if user|can:'ver_info_curso' %}
+    <a
+      class="btn btn-lg text-light text-center p-3 mt-2 mt-2 rounded"
+      style="
+        height: 6em;
+        width: 400px;
+        font-size: x-large;
+        background-color: #0b5394;
+      "
+      href="{% url "info_cursos" %}"
+    >
+    Visualizar Informações Do Curso
+    </a>
+    {% endif %}
+
+    {% if user|can:'adicionar_notas' %}
+    <a
+    class="btn btn-lg text-light text-center p-3 mt-2 mt-2 rounded"
+    style="height: 6em; width: 400px; font-size: x-large;background-color: #0b5394;"
+    href="{% url "cadastro-notas" %}"
+    >
+    Cadastrar Notas
+    </a>
+
+    <a
+    class="btn btn-lg text-light text-center p-3 mt-2 mt-2 rounded"
+    style="height: 6em; width: 400px; font-size: x-large;background-color: #0b5394;"
+    href="{% url "cadastro-nota-final" %}"
+    >
+    Cadastrar nota prova final
+    </a>
+    {% endif %}
+    
+    {% if user|can:'adicionar_ faltas' %}
+    <a
+    class="btn btn-lg text-light text-center p-3 mt-2 mt-2 rounded"
+    style="height: 6em; width: 400px; font-size: x-large; background-color: #0b5394;"
+    href="{% url "cadastro-falta" %}"
+    >
+    Cadastrar Faltas
+    </a>
+
+    {% endif %}
+
+    {% if user|can:'ver_alunos' %}
+    <a
+    href="{% url "info_alunos" %}"
+    class="btn btn-lg text-light text-center p-3 mt-2 mt-2 rounded"
+    style="height: 6em; width: 400px; font-size: x-large;background-color: #0b5394;"
+    >
+    Informações Alunos
+    </a>
+    {% endif %}
+
+    {% if user|can:'cadastrar_professores' %}
+    <a
+    class="btn btn-lg text-light text-center p-3 mt-2 mt-2 rounded"
+    style="height: 6em; width: 400px; font-size: x-large;background-color: #0b5394;"
+    href="{% url "cadastro-professor" %}"
+    >
+    Cadastrar Professor
+    </a>
+    {% endif %}
+
+    {% if user|can:'cadastrar_alunos' %}
+    <a
+    href="{% url "cadastro-aluno" %}"
+    class="btn btn-lg text-light text-center p-3 mt-2 mt-2 rounded"
+    style="height: 6em; width: 400px; font-size: x-large;background-color: #0b5394;"
+    >
+    Cadastrar Aluno
+    </a> 
+    {% endif %}
+
+    {% if user|can:'cadastrar_coordenador' %}
+    <a
+    class="btn btn-lg text-light text-center p-3 mt-2 mt-2 rounded"
+    style="height: 6em; width: 400px; font-size: x-large;background-color: #0b5394;"
+    href="{% url "cadastro_coordenador" %}"
+    >
+    Cadastrar Coordenador
+    </a>
+    {% endif %}
+
+    {% if user|can:'cadastrar_disciplinas' %}
+    <a
+    class="btn btn-lg text-light text-center p-3 mt-2 mt-2 rounded"
+    style="height: 6em; width: 400px; font-size: x-large;background-color: #0b5394;"
+    href="{% url "cadastro-disciplina" %}"
+    >
+    Cadastrar Disciplinas
+    </a>
+    {% endif %}
+
+    {% if user|can:'cadastar_cursos' %}
+    <a
+    class="btn btn-lg text-light text-center p-3 mt-2 mt-2 rounded"
+    style="height: 6em; width: 400px; font-size: x-large;background-color: #0b5394;"
+    href="{% url "cadastro-curso" %}"
+    >
+    Cadastrar Cursos
+    </a>
+    {% endif %}
+    
+    {% if user|can:'cadastrar_turma' %}
+    <a
+    class="btn btn-lg text-light text-center p-3 mt-2 mt-2 rounded"
+    style="height: 6em; width: 400px; font-size: x-large;background-color: #0b5394;"
+    href="{% url "cadastro-turma" %}"
+    > 
+    Cadastrar Turma
+    </a>
+    {% endif %}
+  </div>
+</div>
+{% endblock content %}

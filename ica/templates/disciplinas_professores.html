@@ -1,0 +1,54 @@
+{% extends "base.html" %} {% block title %}Disciplinas e Professores{% endblock title %}
+{% block content %}
+
+{% for professor in info_professores %}
+
+<div
+  class="container text-light mt-4 p-4"
+  style="background-color: #0b5394; border-radius: 15px;"
+>
+  <h2 class="p-2">Informações dos Professores</h2>
+    <div class="row mt-3 p-2">
+      <h4 class="p-2">Informações Pessoais</h4>
+      <div class="col">
+        <h3>Nome</h3>
+        <span> {{professor.first_name}} </span>
+      </div>
+
+      <div class="col">
+        <h3>Sobrenome</h3>
+        <span> {{professor.last_name}} </span>
+      </div>
+      <div class="col">
+        <h3>Disciplina</h3>
+        <span> {{professor.disciplina_professor}} </span>
+      </div>
+    </div>
+
+    <div class="row p-4">
+      <div class="col">
+        <h3>Data de Nascimento</h3>
+        <span> {{professor.dtNascimento}} </span>
+      </div>
+      <div class="col">
+        <h3>Gênero</h3>
+        <span> {{professor.get_genero_display}} </span>
+      </div>
+    </div>
+
+    <hr />
+    <div class="row p-4">
+      <h4 class="p-2">Informações de Contato </h4>
+      <div class="col">
+        <h3>Telefone</h3>
+        <span> {{professor.TelCelular}} </span>
+      </div>
+      <div class="col">
+        <h3>Email</h3>
+        <span> {{professor.email}}  </span>
+      </div>
+    </div>
+</div>
+
+{% endfor %}
+{% endblock content %}

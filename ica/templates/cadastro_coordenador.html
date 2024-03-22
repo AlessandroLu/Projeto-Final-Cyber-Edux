@@ -1,0 +1,107 @@
+{% extends "base.html" %} {% block title %}Cadastrar Coordenador{% endblock title %} {% block content %}
+<div class="container text-light mt-4 p-4" style="background-color: #0b5394; border-radius: 15px;">
+  <h2 class="p-2">Cadastrar Coordenador</h2>
+<form method="post">
+  {% csrf_token %}
+  <div class="row mt-3 p-2">
+    <h4 class="p-2">Informações Pessoais</h4>
+    <div class="col">
+      <div data-mdb-input-init class="form-outline">
+        <input type="text" id="nome" class="form-control" name="first_name" />
+        <label class="form-label" for="first_name">Nome</label>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div data-mdb-input-init class="form-outline">
+        <input type="text" id="last_name" class="form-control" name="last_name" />
+        <label class="form-label" for="last_name">Sobrenome</label>
+      </div>
+    </div>
+    <div class="col">
+      <div data-mdb-input-init class="form-outline">
+        <input type="text" id="cpf" class="form-control" name="cpf"/>
+        <label class="form-label" for="cpf">CPF</label>
+      </div>
+      {% if cpf_igual %}
+
+      CPF já em uso!
+
+      {% endif %}
+    </div>
+  </div>
+  
+  <div class="row p-4">
+    <div class="col">
+      <div data-mdb-input-init class="form-outline">
+        <input type="date" id="dtnascimento" name="dtNascimento" class="form-control" />
+        <label class="form-label" for="dtNascimento">Data de Nascimento</label>
+      </div>
+    </div>
+    <div class="col">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text bg-light" for="genero">Gêneno</label>
+        </div>
+        <select class="custom-select form-control"name="genero" id="inputGroupSelect01">
+          <option selected>Escolha um Gêneno</option>
+          <option value="1">Masculino</option>
+          <option value="2">Feminino</option>
+          <option value="3">Outro</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  
+  <hr />
+  <div class="row mt-3 p-2">
+    <h4 class="p-2">Informações de Contato</h4>
+    <div class="col">
+      <div data-mdb-input-init class="form-outline">
+        <input type="text" id="telefone" class="form-control" name="TelCelular"/>
+        <label class="form-label" for="TelCelular">Telefone</label>
+      </div>
+      {% if TelCelular_igual %}
+
+      Telefone já em uso!
+
+      {% endif %}
+    </div>
+    <div class="col">
+      <div data-mdb-input-init class="form-outline">
+        <input type="email" id="email" class="form-control" name="email"/>
+        <label class="form-label" for="email">Email</label>
+        {% if email_igual %}
+
+        Email já em uso!
+
+        {% endif %}
+    </div>
+  </div>
+  <hr />
+  <div class="row mt-3 p-2">
+    <h4 class="p-2">Contrato</h4>
+    <div class="col">
+      <div data-mdb-input-init class="form-outline">
+        <input type="date" id="email" class="form-control" name="contrato"/>
+        <label class="form-label" for="contrato">Fim do Contrato</label>
+    </div>
+  </div>
+</div>
+  <div style="margin-left: 45%;">
+    <button type="submit" class="btn btn-lg btn-light">Cadastrar </button>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"
+  integrity="sha512-0XDfGxFliYJPFrideYOoxdgNIvrwGTLnmK20xZbCAvPfLGQMzHUsaqZK8ZoH+luXGRxTrS46+Aq400nCnAT0/w=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"></script>
+<script>
+  $("#cpf").mask("000.000.000-00", { reverse: true });
+</script>
+<script>
+  $('#telefone').mask('(00) 00000-0000');
+</script>
+</form>
+</div>
+{% endblock content %}

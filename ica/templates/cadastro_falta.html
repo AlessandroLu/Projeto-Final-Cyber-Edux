@@ -1,0 +1,70 @@
+{% extends "base.html" %} {% block title %}Cadastrar Falta{% endblock title %}
+{% block content %}
+<div
+  class="container text-light mt-4 p-4"
+  style="background-color: #0b5394; border-radius: 15px"
+>
+  <h2 class="p-2 mt-4">Cadastrar Falta</h2>
+  <form method="post" style="margin-top: 60px">
+    {% csrf_token %}
+    <div class="row mt-3 p-2">
+      <div class="col">
+        <div class="col input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text bg-light" for="aluno_matricula"
+              >Aluno</label
+            >
+          </div>
+          <select class="form-control" name="aluno_matricula">
+            <option value="" selected>Selecione um aluno</option>
+            {% for matricula in matriculas %}
+            <option value="{{matricula.matricula}}">
+              Matricula:{{matricula.matricula}} Nome:{{matricula.first_name}}
+              Sobrenome:{{matricula.last_name}} CPF:{{matricula.cpf}}
+            </option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+      <div class="row p-4">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text bg-light" for="aluno_disciplina"
+              >Disciplina Aluno</label
+            >
+          </div>
+          <select class="custom-select form-control" name="aluno_disciplina">
+            <option value="Escolha uma Disciplina" selected>
+              Escolha uma Disciplina
+            </option>
+            {% for disciplina in disciplinas %}
+            <option value="{{disciplina.id_disciplina}}">
+              {{disciplina.nome_disciplina}}
+            </option>
+            {% endfor %}
+          </select>
+      </div>
+      {% if disciplina_valida %}
+
+      Escolha uma Disciplina Válida!
+
+      {% endif %}
+      <div class="row p-4">
+        <div class="col">
+          <div data-mdb-input-init class="form-outline">
+            <input type="text" class="form-control" name="aluno_falta" />
+            <label class="form-label" for="aluno_falta"
+              >Quantidade Faltas</label
+            >
+          </div>
+        </div>
+      </div>
+      <div style="margin-left: 40%">
+        <button type="submit" class="btn btn-lg btn-light">
+          Cadastrar Falta
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock content %}

@@ -1,18 +1,78 @@
 # Documentação
 
-Aqui, você deve elaborar um "guia" para desenvolvedores que queiram contribuir livremente com seu projeto. Estruture este documento como achar melhor. Embora já hajam algumas seções pré-definidas, elas são apenas sugestões de qual estrutura seguir e o que escrever.
+## Criação do Ambiente Virtual do Python Linux/Windows
 
-**Não seja prolixo. Escreva de forma rápida, objetiva e sem informações óbvias.**
+Windows
 
-## Instruções de deploy
+```python
+cd pasta_criada_para_o_projeto
+py -m venv nome_ambiente # Cria ambiente
 
-Faça uma pequena pesquisa sobre como fazer o [*deploy*](https://en.wikipedia.org/wiki/Software_deployment) de um projeto web com Python e Django e escreva aqui algumas orientações breves.  Fazer o *deploy* não é obrigatório para a avaliação, mas é importante que os desenvolvedores do projeto tenham ao menos uma noção de como isso é feito.
+nome_ambiente/scripts/activate # Ativar ambiente
+```
 
-Sugestões de serviços de hospedagem para pesquisar:
-* Vercell
-* PythonAnywhere
-* AWS Elastic Beanstalk (não recomendamos o uso deste serviço sem supervisão, pois pode gerar cobranças inesperadas)
+Linux
+
+```python
+virtualenv nome_ambiente # Cria  ambiente
+
+source .venv/bin/activate # Ativar ambiente
+```
+
+# Inicializando Projeto
+
+## Instalação pacote necessários no projeto
+
+```python
+pip install -r requirements.txt
+```
+
+Criando as Migrações e o Banco de Dados Db.sqlite
+
+\*caso esteja pelo CMD
+
+```python
+py manage.py makemigrations && py manage.py migrate
+```
+
+Ou
+
+```python
+py manage.py makemigrations
+py manage.py migrate
+```
+
+## Adicionando gmail ao projeto para servir de caminho
+
+```console
+>type nul > ".env"
+```
+
+Adicionar dentro da pasta .env
+
+EMAIL_HOST_USER=gmail a ser ultilizado para enviar do sistema
+EMAIL_HOST_PASSWORD=senha do app criada pelo gmail
+
+Video Guia:
+[Enviando Email com Django](https://www.youtube.com/watch?v=qhBhnjdZ-9g)
+
+## Criação superuser para acesso inicial ao sistema
+
+```python
+ py manage.py createsuperuser
+```
+
+Acesso ao site
+
+```python
+py manage.py runserver
+```
+
 
 ## Modelagem de banco de dados
 
-Coloque aqui a modelagem do banco de dados desenvolvido no projeto. Você pode colocar diagramas conceituais e lógicos, ou até mesmo descrever textualmente o que cada uma das tabelas e atributos representam. 
+<img src="img/diagrama_conceitual_ica" width="350px">
+Diagrama Conceitual ICA
+
+<img src="img/diagrama_logico_ica" width="350px">
+Diagrama Lógico ICA

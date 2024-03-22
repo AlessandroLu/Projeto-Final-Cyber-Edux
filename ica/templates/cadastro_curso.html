@@ -1,0 +1,71 @@
+{% extends "base.html" %} 
+
+{% load static %}
+
+{% block title %}Cadastrar Cursos{% endblock title %}
+
+{% block content %}
+<div class="container text-light mt-4 p-4 mb-3"style="background-color: #0b5394; border-radius: 15px;">
+  <h2 class="p-2">Cadastrar Curso De Graduação</h2>
+<form method="post">
+    {% csrf_token %}
+    <div class="row mt-3 p-2">
+      <div class="col">
+        <div data-mdb-input-init class="form-outline">
+          <input type="text" id="nome" class="form-control" name="nome_curso" required />
+          <label class="form-label" for="nome">Nome Curso de Graduação</label>
+        </div>
+        {% if nome_igual %}
+
+        Curso de Graduação já Cadastrado!
+
+        {% endif %}
+      </div>
+    <div class="row mt-3 p-2">
+      <div class="col">
+        <div data-mdb-input-init class="form-outline">
+          <input type="text"  id="last_name" class="form-control" name="duracao_curso" required/>
+          <label class="form-label" for="duracao_curso">Duração Curso de Graduação</label>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3 p-2">
+      <div class="col">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text bg-light" for="categoria_curso">Categoria Curso</label>
+          </div>
+          <select class="custom-select form-control" name="categoria_curso" required>
+            <option selected value="">Escolha um categoria</option>
+            <option value="1">Bacharelado</option>
+            <option value="2">Licenciatura</option>
+            <option value="3">Tecnólogo</option>
+          </select> 
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3 p-2">
+      <div class="col">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text bg-light" for="area_curso">Área do Conhecimento Curso</label>
+          </div>
+          <select class="custom-select form-control" name="area_curso" required>
+            <option selected value="">Escolha uma Área</option>
+            <option value="1">Ciências Exatas e da Terra</option>
+            <option value="2">Ciências Biológicas</option>
+            <option value="3">Ciências da Saúde</option>
+            <option value="4">Ciências Humanas</option>
+            <option value="5">Ciências Agrárias</option>
+            <option value="6">Ciências Sociais Aplicadas</option>
+            <option value="7">Linguística, Letras e Artes</option>
+          </select> 
+        </div>
+      </div>
+    </div>    
+      <div style="margin-left: 37%;">
+        <button type="submit" class="btn btn-lg btn-light">Cadastrar Curso de Graduação</button>
+      </div>
+    </form>
+</div>
+{% endblock content %}

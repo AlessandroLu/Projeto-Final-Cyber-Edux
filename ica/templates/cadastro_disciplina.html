@@ -1,0 +1,53 @@
+{% extends "base.html" %} 
+
+{% block title %}Cadastrar Disciplina{% endblock title %}
+
+{% block content %}
+<div class="container text-light mt-4 p-4 mb-3"style="background-color: #0b5394; border-radius: 15px;height: 540px; margin; 50px;">
+  <h2 class="p-2">Cadastrar Disciplina</h2>
+  <form method="post">
+    {% csrf_token %}
+    <div class="row mt-3 p-2">
+      <div class="col">
+        <div data-mdb-input-init class="form-outline">
+          <input type="text" class="form-control" name="nome_disciplina" />
+          <label class="form-label" for="nome_disciplina">Nome Disciplina</label>
+        </div>
+        {% if nome_igual %}
+
+        Disciplina já Cadastrada!
+  
+        {% endif %}
+      </div>
+    <div class="row mt-3 p-2">
+      <div class="col">
+        <div data-mdb-input-init class="form-outline">
+          <input type="text" class="form-control" name="duracao_disciplina" />
+          <label class="form-label" for="duracao_disciplina">Duração Disciplina</label>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3 p-2">
+      <h4 class="p-2">Curso de Graduação</h4>
+        <div class="col">
+          <div data-mdb-input-init class="form-outline">
+            <select class="custom-select form-control"name="graduacao_disciplina">
+              <option value="Escolha um Curso de Graduação" selected>Escolha um Curso de Graduação</option>
+              {% for curso in cursos  %}
+              <option value="{{ curso.id_curso }}">{{ curso.nome_curso }}</option>
+              {% endfor %}
+            </select>
+        </div>
+        {% if graduacao_valida %}
+
+        Escolha Uma Opção Válida
+
+        {% endif %}
+      <div style="margin-left: 40%; margin-top: 2%;">
+        <button type="submit" class="btn btn-lg btn-light">Cadastrar Disciplina</button>
+      </div>
+    </div> 
+    </div>
+    </form>
+</div>
+{% endblock content %}
