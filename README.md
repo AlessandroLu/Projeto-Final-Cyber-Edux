@@ -23,6 +23,7 @@ O Projeto tem como objetivo de funcionalidade a gestão de notas e faltas dos al
 ## Documentação
  
 - [Documentação (para desenvolvedores)](DOCUMENTACAO.md)
+- [Manual (para usuários)](MANUAL.md)
 
 ## Sobre o autor
 
