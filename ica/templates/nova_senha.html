@@ -22,7 +22,7 @@
               verificar se você a digitou corretamente.
             </p>
 
-            <form method="POST" style="text-align: center">
+            <form method="POST" style="text-align: center; color: white;">
               {% csrf_token %} {{form.as_p}}
               <input type="submit" class="btn btn-lg btn-light" />
             </form>

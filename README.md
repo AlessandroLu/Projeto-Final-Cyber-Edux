@@ -21,9 +21,8 @@
 O Projeto tem como objetivo de funcionalidade a gestão de notas e faltas dos alunos matriculados nos diferentes cursos de Graduação oferecidos de uma empresa de ensino. Esse sistema conta que facilitam o gerenciamento eficiente, entre as ferramentas temos Cadastro de Alunos, Professores e Coordenadores; Controle de Notas e faltas Os professores podem inserir as avaliações (atividades e provas) e calcular as médias automaticamente; Cadastros de Turmas; Cursos de Graduações e suas Disciplinas e Visualização de Notas e Faltas acessados pelos alunos.
 
 ## Documentação
-
+ 
 - [Documentação (para desenvolvedores)](DOCUMENTACAO.md)
-- [Manual (para usuários)](MANUAL.md)
 
 ## Sobre o autor
 

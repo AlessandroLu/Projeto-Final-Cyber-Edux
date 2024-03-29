@@ -10,8 +10,8 @@
 
 <div
   class="container align-items-center text-light"
-  style="min-height: 430px; color: white"
->
+  style="min-height: 430px"
+> 
   <div class="container">
     <div class="container mt-3">
       <div class="row d-flex justify-content-center align-items-center h-500">
@@ -33,7 +33,7 @@
             </p>
             <p style="color: white">para configurar uma nova senha.</p>
 
-            <form method="POST" style="text-align: center" style="color: white">
+            <form method="POST" style="text-align: center; color: white">
               {% csrf_token %} {{form.as_p}}
               <input type="submit" class="btn btn-lg btn-light" />
             </form>
