@@ -74,11 +74,8 @@ py manage.py runserver
 ## Modelagem de banco de dados
 
 <img src="img/diagrama_conceitual_ica.png" width="600px">
-<br>
 Diagrama Conceitual ICA
 
-<br>
 
 <img src="img/diagrama_logico_ica.png" width="600px">
-<br>
 Diagrama Lógico ICA
