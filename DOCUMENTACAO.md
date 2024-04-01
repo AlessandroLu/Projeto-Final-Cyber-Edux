@@ -7,6 +7,9 @@ Windows
 ```python
 py -m venv nome_ambiente # Cria ambiente
 
+```
+
+```python
 nome_ambiente/scripts/activate # Ativar ambiente
 ```
 
@@ -14,7 +17,9 @@ Linux
 
 ```python
 virtualenv nome_ambiente # Cria  ambiente
+```
 
+```python
 source .venv/bin/activate # Ativar ambiente
 ```
 
@@ -29,7 +34,7 @@ pip install -r requirements.txt
 ## Adicionando gmail ao projeto para servir de caminho de envio
 
 ```console
-type nul > “.env”
+type nul > .env
 ```
 
 ### Adicionar dentro da pasta .env
